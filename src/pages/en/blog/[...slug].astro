@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getLangFromUrl, useTranslations, formatDate, langPrefix } from '../../../i18n/utils';
 import { siteConfig } from '../../../data/site';
+import Comments from '../../../components/Comments.astro';
 
 const lang = getLangFromUrl(Astro.url) as 'zh' | 'en';
 const t = useTranslations(lang);
@@ -49,5 +50,8 @@ const { title, description, pubDate, tags, updatedDate } = post.data;
     <div class="mt-16 pt-8 border-t border-primary/10 text-center">
       <p class="text-ink-soft">— {t('footer.madeWith')} —</p>
     </div>
+
+    <!-- Comments -->
+    <Comments />
   </article>
 </BaseLayout>
