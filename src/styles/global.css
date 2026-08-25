@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+/* ========================================
+   主题色 — 粉蓝白色系
+   灵感：白色的猫 · 海浪 · 风铃花 · 清晨的天空
+   修改这里的颜色即可全站换色
+   ======================================== */
+@theme {
+  --color-primary: #f9a8c9;        /* 樱花粉 — 主色 */
+  --color-primary-light: #fcd5e5;  /* 浅粉 */
+  --color-accent: #8ecae6;          /* 天空蓝 — 辅色 */
+  --color-accent-light: #c4dded;   /* 浅蓝 */
+  --color-ocean: #5b9bd5;          /* 海洋蓝 — 深色点缀 */
+  --color-bellflower: #a8c8ec;     /* 风铃花蓝 */
+  --color-warmwhite: #fefcfd;      /* 奶油白 — 背景色 */
+  --color-ink: #4a5568;            /* 柔灰蓝 — 正文文字 */
+  --color-ink-soft: #94a3b8;       /* 浅灰蓝 — 次要文字 */
+
+  --font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-wave: wave 8s ease-in-out infinite;
+  --animate-sway: sway 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 海浪般的缓慢摆动 */
+@keyframes wave {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-2deg); }
+  75% { transform: translateY(3px) rotate(2deg); }
+}
+
+/* 风铃花般的摇曳 */
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* ========================================
+   全局基础样式
+   ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warmwhite);
+  color: var(--color-ink);
+}
+
+/* 自定义滚动条 — 粉蓝色 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-warmwhite);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}
+
+/* 链接交互 */
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* 选中文本颜色 */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-ink);
+}
+
+/* 渐变文字 — 粉蓝渐变 */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
